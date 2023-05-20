@@ -1,0 +1,10 @@
+resource "google_dns_record_set" "{{ .DnsEntry.HostSlug }}-{{ .Hash }}" {
+  name         = "{{ .DnsEntry.Host }}"
+  managed_zone = google_dns_managed_zone.{{ .ZoneSlug }}-zone.name
+  type         = "{{ .DnsEntry.RecordType }}"
+  ttl          = "{{ .DnsEntry.TTL }}"
+  rrdatas = [
+    "{{ .DnsEntry.Value }}"
+  ]
+}
+

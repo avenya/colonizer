@@ -1,0 +1,9 @@
+resource "google_dns_managed_zone" "{{ .ZoneSlug }}-zone" {
+    name        = "{{ .ZoneSlug }}-zone"
+    dns_name    = "{{ .Zone }}"
+    description = "DNS zone for {{ .Zone }}"
+    labels = {
+      type = "website"
+    }
+  }
+
